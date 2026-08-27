@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação Pessoal - Alexandre Freire</title>
+  <style>
+    /* VARIABLES & RESET */
+    :root {
+      --green-dark: #003641;
+      --green-main: #00ae9d;
+      --green-light: #7db61c;
+      --gray-bg: #f4f6f8;
+      --text: #2c3e50;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--gray-bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* CONTAINER & HEADER */
+    .container {
+      background-color: var(--white);
+      width: 100%;
+      max-width: 850px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 54, 65, 0.15);
+      overflow: hidden;
+      border-top: 6px solid var(--green-main);
+    }
+
+    .header {
+      background-color: var(--green-dark);
+      color: var(--white);
+      padding: 30px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      color: var(--green-light);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    /* NAVIGATION TABS */
+    .nav-tabs {
+      display: flex;
+      background-color: #e9ecef;
+      border-bottom: 2px solid #dee2e6;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      background: none;
+      font-weight: 600;
+      color: var(--green-dark);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .tab-btn:hover {
+      background-color: rgba(0, 174, 157, 0.1);
+    }
+
+    .tab-btn.active {
+      background-color: var(--white);
+      color: var(--green-main);
+      border-bottom: 3px solid var(--green-main);
+    }
+
+    /* CONTENT & ANIMATIONS */
+    .content {
+      padding: 30px;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      color: var(--green-dark);
+      margin-bottom: 15px;
+    }
+
+    /* EDITABLE FIELDS & BADGES */
+    .editable-field {
+      border: 1px dashed transparent;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .editable-field:hover, .editable-field:focus {
+      border-color: var(--green-main);
+      outline: none;
+      background-color: #f0faf9;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .badge {
+      background-color: var(--green-dark);
+      color: var(--white);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .badge.accent {
+      background-color: var(--green-light);
+      color: var(--green-dark);
+      font-weight: bold;
+    }
+
+/* EXPERIENCE CARDS */
+.experience-item {
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #e9ecef;
+  transition: all 0.2s ease;
+  margin-bottom: 10px;
+}
+
+.experience-item:hover {
+  border-color: var(--sicoob-green-main);
+  background-color: #f0faf9;
+}
+
+.job-title {
+  font-weight: 700;
+  color: var(--sicoob-green-dark);
+}
+
+.job-sub {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-bottom: 6px;
+}
+
+    /* LINKS SECTION */
+    .links-container {
+      margin-top: 25px;
+      padding-top: 15px;
+      border-top: 1px dashed #dee2e6;
+      display: flex;
+      gap: 15px;
+    }
+
+    .custom-link {
+      color: var(--green-main);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .custom-link:hover {
+      color: var(--green-dark);
+      text-decoration: underline;
+    }
+
+    .footer {
+      background-color: var(--gray-bg);
+      padding: 15px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6c757d;
+      border-top: 1px solid #e9ecef;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Cabeçalho -->
+    <header class="header">
+      <h1 class="editable-field" contenteditable="false">Alexandre Freire</h1>
+      <p class="editable-field" contenteditable="false">Supervisor de Acompanhamento e Projeção da Receita Orçamentária e de Parâmetros Econômicos e Fiscais</p>
+    </header>
+
+    <!-- Menu de Navegação -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" onclick="openTab(event, 'sobre')">Sobre Mim</button>
+      <button class="tab-btn" onclick="openTab(event, 'experiencia')">Experiências</button>
+      <button class="tab-btn" onclick="openTab(event, 'habilidades')">Habilidades</button>
+      <button class="tab-btn" onclick="openTab(event, 'objetivos')">Objetivos</button>
+    </nav>
+
+<!-- Conteúdo das Abas -->
+<main class="content">
+  
+  <!-- Aba: Sobre Mim -->
+  <section id="sobre" class="tab-content active">
+    <h3 class="section-title">Apresentação</h3>
+    <p style="line-height: 1.6;">Formado em Economia (2026)</p>
+    <p style="line-height: 1.6;">Mestrando de Economia Aplicada (2026 - 2027)</p>
+    <p style="line-height: 1.6;">Aspirante em Power BI, Python e linguagens de programação.</p>
+  </section>
+
+      <!-- Aba: Experiências -->
+      <section id="experiencia" class="tab-content">
+        <h3 class="section-title">Experiência Profissional</h3>
+        
+        <div class="experience-item editable-field" contenteditable="true">
+          <div class="job-title">Supervisor de Acompanhamento e Projeção da Receita Orçamentária</div>
+          <div class="job-sub">SEPLAG · Tempo integral | Mar de 2026 - Presente · Maceió, AL</div>
+          <p>Acompanhamento e Projeção da Receita Orçamentária, Parâmetros Econômicos e Fiscais.</p>
+        </div>
+
+        <div class="experience-item editable-field" contenteditable="true">
+          <div class="job-title">Consultor de Vendas / Consultor Trainee Comercial</div>
+          <div class="job-sub">JRS Consultoria | Jun de 2025 - Dez de 2025 · Maceió, AL</div>
+          <p>Colaboração em equipe para produtos/serviços de consultoria personalizadas, propostas comerciais, gestão de metas de receita e atendimento a clientes.</p>
+        </div>
+
+        <div class="experience-item editable-field" contenteditable="true">
+          <div class="job-title">Estagiário em Business Intelligence</div>
+          <div class="job-sub">Tribunal de Justiça do Estado de Alagoas | Set de 2024 - Dez de 2025</div>
+          <p>Monitoramento de metas estratégicas com Power BI/DAX, modelagem de dados e automação de indicadores em Google Sheets.</p>
+        </div>
+
+        <div class="experience-item editable-field" contenteditable="true">
+          <div class="job-title">Estagiário de Gestão Orçamentária</div>
+          <div class="job-sub">SEDUC Alagoas | Jun de 2023 - Jun de 2025</div>
+          <p>Operação de sistema SIAFI, controle de indicadores fiscais, análise da execução orçamentária e projeções financeiras.</p>
+        </div>
+
+        <div class="experience-item editable-field" contenteditable="true">
+          <div class="job-title">Estagiário Comercial</div>
+          <div class="job-sub">Sistema FIEA | Jun de 2022 - Jun de 2023</div>
+          <p>Gestão de pipeline via CRM, prospecção multicanal B2B/B2C e fechamento de novos contratos.</p>
+        </div>
+      </section>
+
+      <!-- Aba: Habilidades -->
+      <section id="habilidades" class="tab-content">
+        <h3 class="section-title">Principais Competências</h3>
+        <div class="badge-list">
+          <span class="badge editable-field">Power BI</span>
+          <span class="badge editable-field">Python</span>
+          <span class="badge editable-field">Projeções Orçamentárias</span>
+          <span class="badge editable-field">ETL & Power Query</span>
+          <span class="badge editable-field">SIAFI & Gestão Pública</span>
+        </div>
+      </section>
+
+<!-- Aba: Objetivos -->
+      <section id="objetivos" class="tab-content">
+        <h3 class="section-title">Objetivos Profissionais</h3>
+        <div class="experience-item">
+          <p style="line-height: 1.6;">
+            Aprimorar minhas habilidades em análise de dados, programação e visualização de informações, contribuindo diretamente para projetos inovadores e impactantes na área de Economia Aplicada (Econometria e Análise de Dados).
+          </p>
+        </div>
+      </section>
+
+      
+      <!-- Links Rápidos -->
+      <div class="links-container">
+        <a href="https://www.linkedin.com/in/alexandre-albuquerque-1814852a7/" target="_blank" class="custom-link">🔗 LinkedIn</a>
+        <a href="https://github.com/alexandre-albuquerque17?tab=repositories" target="_blank" class="custom-link">💻 GitHub</a>
+      </div>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      Apresentação Pessoal Interativa
+    </footer>
+  </div>
+
+  <script>
+    function openTab(evt, tabName) {
+      const tabContents = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove("active");
+      }
+
+      const tabBtns = document.getElementsByClassName("tab-btn");
+      for (let i = 0; i < tabBtns.length; i++) {
+        tabBtns[i].classList.remove("active");
+      }
+
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
